@@ -1,7 +1,13 @@
 .App {
   text-align: center;
+ 
 }
-
+.css-46bh2p-MuiCardContent-root{
+  padding: 0 !important;
+}
+body{
+  background-color: #DBF3FF;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
