@@ -21,7 +21,7 @@ const WeatherDay3=({day3})=>{
           
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-               {item3.temp3}
+               {item3.temp3}&deg;
               </Typography>
               <Typography gutterBottom variant="h6" component="div">
                {item3.name3}
