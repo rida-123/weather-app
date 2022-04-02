@@ -11,8 +11,10 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.0.0",
+    "react-day-and-night-toggle": "^1.0.18",
     "react-dom": "^18.0.0",
     "react-scripts": "5.0.0",
+    "styled-components": "^5.3.5",
     "weather-icons": "git+https://github.com/erikflowers/weather-icons.git",
     "web-vitals": "^2.1.4"
   },

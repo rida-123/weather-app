@@ -3,6 +3,7 @@ import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import './searchbar.css';
+
 import { useEffect, useState } from 'react';
 import WeatherDay1 from '../weatherday1/weatherday1';
 import WeatherData from '../weatherdata/weatherdata';
@@ -11,7 +12,8 @@ import WeatherDay3 from '../weatherday3/weatherday3';
 import WeatherDay4 from '../weatherday4/weatherday4';
 import WeatherDay5 from '../weatherday5/weatherday5';
 const Searchbar=()=>{
-    const [searchVal,setSearchVal]=useState("Faisalabad")
+    let [searchVal,setSearchVal]=useState("Faisalabad")
+  
     let[allInfo,setAllInfo]=useState({})
     let[day1,setDay1]=useState([]);
     let[day2,setDay2]=useState([]);
@@ -21,6 +23,7 @@ const Searchbar=()=>{
   
     const searchCityData= async()=>{
         
+     
         try{
             
         let url=`https://api.openweathermap.org/data/2.5/weather?q=${searchVal}&units=metric&appid=9f6c4fefd2f77206577bd2dc5bb34cb3`;
@@ -28,12 +31,13 @@ const Searchbar=()=>{
         let res=await fetch(url);
         let data=await res.json();
         console.log(data);
-    
+        
         const {temp,humidity,pressure}=data.main;
         const {main}=data.weather[0]
         const{name}=data;
         const{country,sunset}=data.sys;
-        const {speed}=data.wind
+        const {speed}=data.wind;
+      
         const alldata={
             temp,
             main,
@@ -164,7 +168,11 @@ console.log(error)
         inputProps={{ 'aria-label': 'search' }}
         value={searchVal}
       
-        onChange={(e)=>setSearchVal(e.target.value)}
+        onChange={(e)=>{
+           
+            setSearchVal(e.target.value)
+            }
+        }
       />
       <IconButton sx={{ p: '10px' }} aria-label="search" style={{color:"#67B5E6"}} onClick={searchCityData} >
         <SearchIcon />

@@ -25,7 +25,19 @@ const WeatherData=({allInfo})=>{
         speed
     }=allInfo;
     let sec=sunset;
-  let date=new Date(sec*1000);
+    let cDate=new Date();
+    let days=["Sun","Mon","Tues","Wed","Thurs","Fri","Sat"]
+ 
+let day=days[cDate.getDay()];
+let months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+let month=months[cDate.getMonth()];
+let dates=cDate.getDate();
+let year=cDate.getFullYear();
+let FullDate=`${month} ${dates}, ${year}`
+
+
+
+    let date=new Date(sec*1000);
   let timestr=`${date.getHours()}:${date.getMinutes()}`
   let[mood,setMood]=useState("");
 useEffect(()=>{
@@ -71,9 +83,11 @@ useEffect(()=>{
         <Box sx={{ flexGrow: 1 }} style={{marginTop:"20px"}}>
       <Grid container spacing={2} columns={18} >
         <Grid item xs={9} style={{backgroundColor:"black", color:"white" ,padding:'5px'}}>
+        <h1>{day}&nbsp;&nbsp;{FullDate}</h1>  
         <h1>{temp}&deg;</h1>
         </Grid>
         <Grid item xs={9} style={{color:"black" ,padding:'5px',backgroundColor:"#B7E0F2"}}>
+        
 <h1>{main}</h1>
 <h4>{name}, {country}</h4>
         </Grid>
